@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2024 at 06:07 PM
+-- Generation Time: Mar 09, 2024 at 07:46 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,6 +24,26 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin_table`
+--
+
+CREATE TABLE `admin_table` (
+  `admin_id` int(11) NOT NULL,
+  `admin_name` varchar(100) NOT NULL,
+  `admin_email` varchar(200) NOT NULL,
+  `admin_password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin_table`
+--
+
+INSERT INTO `admin_table` (`admin_id`, `admin_name`, `admin_email`, `admin_password`) VALUES
+(1, 'admin', 'admin@gmail.com', '$2y$10$TZFAgj9POwBRHBolUkK8tOe6jOp8bZlI5blC6T7eCweRbhGK46lVK');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cart_details`
 --
 
@@ -32,6 +52,13 @@ CREATE TABLE `cart_details` (
   `ip_address` varchar(255) NOT NULL,
   `quantity` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cart_details`
+--
+
+INSERT INTO `cart_details` (`product_id`, `ip_address`, `quantity`) VALUES
+(2, '::1', 1);
 
 -- --------------------------------------------------------
 
@@ -49,12 +76,76 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category_title`) VALUES
-(1, 'Educational'),
-(2, 'Fiction'),
+(2, 'Fictional'),
 (3, 'Novels'),
-(4, 'Business'),
 (5, 'Finance'),
 (6, 'Meditation ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `id` int(11) NOT NULL,
+  `ip_address` int(255) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `number` varchar(12) NOT NULL,
+  `message` varchar(500) NOT NULL,
+  `rating` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `ip_address`, `name`, `email`, `number`, `message`, `rating`) VALUES
+(1, 0, 'ritesh', 'ritesh@gmail.com', '1280923023', 'This is ritesh', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders_pending`
+--
+
+CREATE TABLE `orders_pending` (
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `invoice_number` int(255) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(255) NOT NULL,
+  `order_status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders_pending`
+--
+
+INSERT INTO `orders_pending` (`order_id`, `user_id`, `invoice_number`, `product_id`, `quantity`, `order_status`) VALUES
+(1, 6, 1849849698, 5, 1, 'pending'),
+(2, 6, 2101509991, 7, 1, 'pending'),
+(3, 6, 872875947, 8, 1, 'pending'),
+(4, 6, 229692241, 1, 5, 'pending'),
+(5, 6, 1243341609, 1, 1, 'pending'),
+(6, 6, 446627791, 2, 3, 'pending'),
+(7, 6, 1971165048, 1, 1, 'pending'),
+(8, 6, 85058577, 2, 1, 'pending'),
+(9, 6, 1472916817, 2, 1, 'pending'),
+(10, 6, 1470689583, 1, 1, 'pending'),
+(11, 6, 1074294679, 1, 1, 'pending'),
+(12, 6, 342237402, 2, 1, 'pending'),
+(13, 6, 226874678, 2, 1, 'pending'),
+(14, 6, 1670550543, 2, 1, 'pending'),
+(15, 6, 1224258308, 1, 1, 'pending'),
+(16, 6, 442481211, 2, 1, 'pending'),
+(17, 6, 1826047830, 2, 1, 'pending'),
+(18, 6, 1474702820, 2, 1, 'pending'),
+(19, 6, 491330031, 2, 1, 'pending'),
+(20, 6, 121585561, 1, 3, 'pending'),
+(21, 6, 2046517309, 2, 1, 'pending'),
+(22, 6, 271169090, 1, 3, 'pending');
 
 -- --------------------------------------------------------
 
@@ -81,15 +172,8 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_title`, `product_description`, `product_keywords`, `product_author`, `category_id`, `subcat_id`, `product_image`, `product_price`, `date`, `status`) VALUES
-(1, 'English Grammar for Dummies', 'English Grammar for Dummies', 'english, grammar', 'Geraldine Woods', 1, 2, 'english_dummies.jpg', 200, '2024-01-24 19:13:50', 'true'),
-(2, 'Modern PHP', 'Modern PHP: New Features and Good Practices', 'modern, php, programming, program', 'Josh Lockhart', 1, 1, 'modern_php.jpg', 250, '2024-01-24 19:14:46', 'true'),
-(3, 'Rich Dad Poor Dad', 'Rich Dad Poor Dad', 'rich, poor, dad, finance, money', 'Robert Kiyosaki', 5, 7, 'rich_dad.jpg', 150, '2024-01-24 19:16:03', 'true'),
-(4, 'Autobiography of a yogi', 'Autobiography of a yogi', 'biography, yogi', 'Paramahansa Yogananda', 3, 7, 'biography.jpg', 300, '2024-01-24 19:19:25', 'true'),
-(5, 'The power subconsciousness mind', 'The power subconsciousness mind', 'consciousness, subconsciousness, mind, power', 'Joseph Murphy', 6, 7, 'subconsciousmind.jpg', 350, '2024-01-24 19:39:45', 'true'),
-(6, 'English Grammar in Use', 'English Grammar in Use', 'english, grammar', 'Raymond Murpy', 1, 2, 'english_grammar.jpg', 280, '2024-01-24 19:43:11', 'true'),
-(7, 'Private life of princ', 'The private life of an indian prince', 'prince, life, indian', 'Mulk Rajanand', 3, 7, 'privatelife.jpg', 200, '2024-01-25 21:35:47', 'true'),
-(8, 'The Total money make over', 'A proven plan for financial fitness', 'finance, money', 'Dave Ramsey', 5, 3, 'themoney.jpg', 450, '2024-01-25 21:38:07', 'true'),
-(9, 'The wealth choice', 'Success secrets of black millionaries', 'money, finance, millionarie, success, secrets', 'Dennis Kimbro', 5, 6, 'wealth.jpg', 500, '2024-01-25 21:40:54', 'true');
+(1, 'abc', 'this is abc', 'Moderno Php, code, program', 'abc', 2, 1, 'modern_php.jpg', 123, '2024-02-29 15:57:14', 'true'),
+(2, 'def', 'this is def', 'Private life of an indian prince', 'def', 5, 2, 'privatelife.jpg', 342, '2024-02-29 15:03:13', 'true');
 
 -- --------------------------------------------------------
 
@@ -107,13 +191,106 @@ CREATE TABLE `subcat` (
 --
 
 INSERT INTO `subcat` (`subcat_id`, `subcat_title`) VALUES
-(1, 'Programming'),
+(1, 'Program'),
 (2, 'Grammar'),
-(3, 'Literary'),
-(4, 'Historical'),
-(5, 'Fantasy'),
+(4, 'History'),
 (6, 'Action and Adventure'),
 (7, 'Non-Fiction');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_myproducts`
+--
+
+CREATE TABLE `user_myproducts` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_myproducts`
+--
+
+INSERT INTO `user_myproducts` (`id`, `order_id`, `user_id`, `product_id`, `quantity`) VALUES
+(1, 1, 6, 1, 0),
+(2, 2, 6, 2, 0),
+(3, 3, 6, 1, 0),
+(4, 3, 6, 2, 0),
+(5, 4, 6, 1, 0),
+(6, 4, 6, 2, 0),
+(7, 6, 6, 1, 0),
+(8, 6, 6, 2, 0),
+(9, 7, 6, 2, 0),
+(10, 8, 6, 1, 0),
+(11, 8, 6, 2, 0),
+(12, 9, 6, 2, 0),
+(13, 10, 6, 1, 0),
+(14, 11, 6, 1, 0),
+(15, 11, 6, 2, 0),
+(16, 12, 6, 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_orders`
+--
+
+CREATE TABLE `user_orders` (
+  `order_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `amount_due` int(255) NOT NULL,
+  `invoice_number` int(255) NOT NULL,
+  `total_products` int(255) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `order_status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_orders`
+--
+
+INSERT INTO `user_orders` (`order_id`, `user_id`, `amount_due`, `invoice_number`, `total_products`, `order_date`, `order_status`) VALUES
+(1, 6, 123, 1074294679, 1, '2024-03-01 13:50:46', 'Complete'),
+(2, 6, 342, 342237402, 1, '2024-02-26 14:43:14', 'pending'),
+(3, 6, 465, 226874678, 2, '2024-02-26 14:43:46', 'pending'),
+(4, 6, 465, 1670550543, 2, '2024-02-26 14:45:19', 'pending'),
+(5, 6, 123, 1224258308, 1, '2024-02-26 14:46:48', 'pending'),
+(6, 6, 465, 442481211, 2, '2024-02-26 14:47:23', 'pending'),
+(7, 6, 342, 1826047830, 1, '2024-02-26 14:48:05', 'pending'),
+(8, 6, 465, 1474702820, 2, '2024-02-27 18:25:03', 'pending'),
+(9, 6, 342, 491330031, 1, '2024-02-28 17:25:18', 'pending'),
+(10, 6, 369, 121585561, 1, '2024-03-01 14:02:09', 'pending'),
+(11, 6, 465, 2046517309, 2, '2024-03-02 05:36:13', 'pending'),
+(12, 6, 369, 271169090, 1, '2024-03-02 05:41:16', 'Complete');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_payments`
+--
+
+CREATE TABLE `user_payments` (
+  `payment_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `invoice_number` int(11) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `payment_mode` varchar(255) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `user_payments`
+--
+
+INSERT INTO `user_payments` (`payment_id`, `order_id`, `invoice_number`, `amount`, `payment_mode`, `date`) VALUES
+(1, 1, 2086026020, 750, 'Paypal', '2024-02-04 15:54:03'),
+(2, 2, 218035803, 630, 'UPI', '2024-02-04 15:54:24'),
+(4, 1, 1074294679, 123, 'UPI', '2024-03-01 13:50:46'),
+(5, 12, 271169090, 369, 'UPI', '2024-03-02 05:41:16');
 
 -- --------------------------------------------------------
 
@@ -137,11 +314,17 @@ CREATE TABLE `user_table` (
 --
 
 INSERT INTO `user_table` (`user_id`, `username`, `user_email`, `user_password`, `user_image`, `user_ip`, `user_address`, `user_mobile`) VALUES
-(1, 'Ritesh', 'ritesh39@gmail.com', '$2y$10$E46IlLghUthy7eTpvontJu4HrvmX.QBuwRKPpxD3wXwY3uqOkAzeW', 'avatar.png', '::1', 'bhayandar', '9082134067');
+(6, 'ritesh', 'ritesh@gmail.com', '$2y$10$.ESpQ633j7HoLrDiGemYlu3H4GVR6pu6kIh0AcceIsSkJmes8MQpm', 'WIN_20211105_18_13_39_Pro.jpg', '::1', 'Bhayandar', '1111111111');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin_table`
+--
+ALTER TABLE `admin_table`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `cart_details`
@@ -156,6 +339,18 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orders_pending`
+--
+ALTER TABLE `orders_pending`
+  ADD PRIMARY KEY (`order_id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -168,6 +363,24 @@ ALTER TABLE `subcat`
   ADD PRIMARY KEY (`subcat_id`);
 
 --
+-- Indexes for table `user_myproducts`
+--
+ALTER TABLE `user_myproducts`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_orders`
+--
+ALTER TABLE `user_orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `user_payments`
+--
+ALTER TABLE `user_payments`
+  ADD PRIMARY KEY (`payment_id`);
+
+--
 -- Indexes for table `user_table`
 --
 ALTER TABLE `user_table`
@@ -178,28 +391,64 @@ ALTER TABLE `user_table`
 --
 
 --
+-- AUTO_INCREMENT for table `admin_table`
+--
+ALTER TABLE `admin_table`
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `orders_pending`
+--
+ALTER TABLE `orders_pending`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `subcat`
 --
 ALTER TABLE `subcat`
-  MODIFY `subcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `subcat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `user_myproducts`
+--
+ALTER TABLE `user_myproducts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `user_orders`
+--
+ALTER TABLE `user_orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `user_payments`
+--
+ALTER TABLE `user_payments`
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user_table`
 --
 ALTER TABLE `user_table`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

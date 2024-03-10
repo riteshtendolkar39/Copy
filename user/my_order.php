@@ -8,6 +8,35 @@
 </head>
 
 <body>
+    <h3 class="text-success">All my Orders</h3>
+    <br>
+    <form method="post" action="" id="orderForm">
+    <div class="form-group row">
+            <label for="start_date" class="col-sm-2 col-form-label">Start Date:</label>
+            <div class="col-sm-2">
+                <input type="date" class="form-control" id="start_date" name="start_date">
+            </div>
+            <label for="end_date" class="col-sm-2 col-form-label">End Date:</label>
+            <div class="col-sm-2">
+                <input type="date" class="form-control" id="end_date" name="end_date">
+            </div>
+            <div class="col-sm-2 ">
+                <input type="submit" class="btn btn-primary" name="submit" value="Fetch Orders" onclick="validateForm()">
+            </div>
+        </div>
+    </form>
+    <script>
+        function validateForm() {
+            var startDate = document.getElementById('start_date').value;
+            var endDate = document.getElementById('end_date').value;
+
+            if (startDate === "" || endDate === "") {
+                alert("Please select both start and end dates.");
+                event.preventDefault(); // Prevent form submission
+            }
+        }
+    </script>
+
     <?php
     $user_email = $_SESSION['user_email'];
     $get_user = "select * from `user_table` where user_email='$user_email'";
@@ -16,11 +45,10 @@
     $user_id = $row['user_id'];
 
     ?>
-    <h3 class="text-success">All my Orders</h3>
     <table class="table table-bordered mt-5">
         <thead>
             <tr>
-                <th class="bg-info">Sr no</th>
+                <th class="bg-info">Order Id</th>
                 <th class="bg-info">Amount Due</th>
                 <th class="bg-info">Total products</th>
                 <th class="bg-info">Invoice number</th>
@@ -31,7 +59,13 @@
         </thead>
         <tbody class="bg-info">
             <?php
-            $get_order = "select * from `user_orders` where user_id=$user_id";
+            if (isset($_POST['submit'])) {
+                $start_date = $_POST['start_date'];
+                $end_date = $_POST['end_date'];
+                $get_order = "select * from `user_orders` where user_id=$user_id AND order_date BETWEEN '$start_date' AND '$end_date'";
+            } else {
+                $get_order = "select * from `user_orders` where user_id=$user_id";
+            }
             $result_order = mysqli_query($con, $get_order);
             $num = 1;
             while ($row_order = mysqli_fetch_assoc($result_order)) {

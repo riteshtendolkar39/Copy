@@ -19,7 +19,9 @@ session_start();
 
   <!--css files-->
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="./css/style1.css">
   <link rel="stylesheet" href="./css/style2.css">
+
   <style>
     .logo {
       width: 100%;
@@ -38,21 +40,14 @@ session_start();
 
     /* Add responsive styles */
     @media screen and (max-width: 768px) {
-      .title1 {
+      .title {
         height: auto;
         /* Adjust height as needed */
         padding: 5vw;
         /* Reduce padding for smaller screens */
       }
     }
-    .btn-purple {
-      background-color: purple;
-      border-color: purple;
-    }
-    .btn-purple:hover {
-      background-color: #800080; /* Darker shade of purple for hover effect */
-      border-color: #800080;
-    }
+
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
@@ -88,7 +83,7 @@ session_start();
   <!-- navbar-->
   <div class="container-fluid p-0">
     <!--first child-->
-    <nav class="navbar navbar-expand-lg bg-info fixed-top">
+    <nav class="navbar navbar-expand-lg bg-info fixed-top fs-4">
       <div class="container-fluid">
         <img src="./images/logo.jpg" alt="" class="logo">
         <a class="navbar-brand ms-2 text-secondary" href="index.php">Books</a>
@@ -103,7 +98,7 @@ session_start();
                 <input type="text" id="search_data" name="search_data" class="mr-2" placeholder="Search products...">
                 <ul id="search_data_list"></ul>
               </div>
-              <button type="submit" class="btn btn-outline-success" name="search_data_product">
+              <button type="submit" class="btn btn-outline-success m-1 p-1" name="search_data_product">
                 <i class="fas fa-search"></i> <!-- Search icon -->
               </button>
             </form>
@@ -146,17 +141,17 @@ session_start();
 
 
             if (!isset($_SESSION['user_email'])) {
-              echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
+              echo " <button type='submit' class='btn btn-outline-success fs-4'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
               
               </form>
                             </ul>
                         </div>
                     </div>
                 </nav>
-                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                            <nav class='navbar navbar-expand-lg navbar-dark bg-light'>
                             <ul class='navbar-nav me-auto'>
                               <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome Guest</a>
+                                <a href='#' class='nav-link text-dark fs-4'>Welcome Guest</a>
                               </li>
                             </ul>
                           </nav>";
@@ -172,13 +167,13 @@ session_start();
                         </div>
                     </div>
                 </nav>
-                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
+                            <nav class='navbar navbar-expand-lg navbar-dark bg-light'>
                             <ul class='navbar-nav me-auto'>
                               <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome " . $username . "</a>
+                                <a href='#' class='nav-link text-dark fs-4'>Welcome " . $username . "</a>
                               </li>
                               <li class='nav-item ms-2'>
-                                <a href='./user/logout.php' class='nav-link'>Logout</a>
+                                <a href='./user/logout.php' class='nav-link text-dark fs-4'>Logout</a>
                               </li>
                             </ul>
                           </nav>";
@@ -190,83 +185,30 @@ session_start();
         </div>
       </div>
     </nav>
-
-    <!-- calling cart function -->
-    <?php cart(); ?>
-
-    <section>
-      <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active title1">
-            <img src="./images/title1.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h1>If you want to make intelligent, get books from here</h1>
-              <p>Shop now!</p>
-            </div>
-          </div>
-          <div class="carousel-item title1">
-            <img src="./images/title2.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <p>Shop now!</p>
-            </div>
-          </div>
-          <div class="carousel-item title1">
-            <img src="./images/title3.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <p>Shop now!</p>
-            </div>
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-    </section>
-
-
-
-    <!--third child-->
-    <!--products-->
-    <div class="mt-5 container">
+    <div class="heading">
+      <h3>about us</h3>
+      <p> <a href="index.php">home</a> / about </p>
+    </div>
+    <section class="about d-flex justify-content-center">
       <div class="row">
-        <!-- fetching products -->
-        <?php
-        // calling function
-        getproducts();
-        ?>
-      </div>
-    </div>
-    <div style="margin-top: 2rem; text-align:center">
-      <a href="display_all.php" class="option-btn">load more</a>
-    </div>
+        <div class="flex">
 
-    <section class="about mt-5">
+          <div class="image">
+            <img src="images/about-img.jpg" alt="">
+          </div>
 
-      <div class="flex">
-
-        <div class="image">
-          <img src="./images/about-img.jpg" alt="">
+          <div class="content">
+            <h3>why choose us?</h3>
+            <p>Our mission is to provide customers with a convenient, affordable, and accessible way to purchase books.We believe that everyone should have access to a wide selection of titles at affordable prices.</p>
+            <p>We offer features like friendly user interface, wide selection of books, selection based on search and categories & sub-categories</p>
+            <a href="contact.php" class="btn">contact us</a>
+          </div>
         </div>
-
-        <div class="content">
-          <h3>about us</h3>
-          <p>Our mission is to provide customers with a convenient, affordable, and accessible way to purchase books.We believe that everyone should have access to a wide selection of titles at affordable prices.</p>
-          <a href="about.php" class="btn1">read more</a>
-        </div>
-
       </div>
 
     </section>
+
+
 
     <!--last child-->
     <?php include('./footer/footer.php') ?>

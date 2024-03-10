@@ -179,6 +179,9 @@ $user_image = $row_image['user_image'];
                 if (isset($_GET['delete_account'])) {
                     include('./delete_account.php');
                 }
+                if(isset($_GET['my_products'])){
+                    include('./my_products.php');
+                }
                 ?>
             </div>
             <div class="col-md-2">
@@ -204,6 +207,11 @@ $user_image = $row_image['user_image'];
                     <li class="nav-item">
                         <a class="nav-link text-light" href="profile.php?my_orders">
                             My Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="profile.php?my_products">
+                        Product History
                         </a>
                     </li>
                     <li class="nav-item">

@@ -19,17 +19,36 @@ session_start();
 
     <!--css files-->
     <link rel="stylesheet" href="style.css">
-    <style>
-        .logo {
-            width: 3%;
-            height: 3%;
-            border-radius: 25px;
-        }
+    <link rel="stylesheet" href="./css/style2.css">
 
-        body {
-            overflow-x: hidden;
-        }
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#search_data').keyup(function() {
+                var query = $(this).val();
+                if (query != '') {
+                    $.ajax({
+                        url: "autocomplete.php",
+                        method: "GET",
+                        data: {
+                            query: query
+                        },
+                        success: function(data) {
+                            $('#search_data_list').fadeIn();
+                            $('#search_data_list').html(data);
+                        }
+                    });
+                }
+            });
+
+            // Modify this part to handle clicks on autocomplete items
+            $(document).on('click', '#search_data_list li', function() {
+                var keyword = $(this).text().trim(); // Get the clicked keyword
+                $('#search_data').val(keyword); // Populate the search box with the clicked keyword
+                $('#search_data_list').fadeOut();
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -46,33 +65,40 @@ session_start();
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <form class="d-flex" action="" method="get">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-                            <input type="submit" class="btn btn-outline-success" value="search" name="search_data_product">
+                        <form class="d-flex" action="search_product.php" method="get">
+                            <div class="autocomplete">
+                                <input type="text" id="search_data" name="search_data" class="mr-2" placeholder="Search products...">
+                                <ul id="search_data_list"></ul>
+                            </div>
+                            <button type="submit" class="btn btn-outline-success" name="search_data_product">
+                                <i class="fas fa-search"></i> <!-- Search icon -->
+                            </button>
                         </form>
-                        <li class="nav-item">
+
+                        <li class="nav-item click">
                             <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item click">
                             <a class="nav-link active" aria-current="page" href="display_all.php">All Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">About</a>
+                        <li class="nav-item click">
+                            <a class="nav-link active" aria-current="page" href="about.php">About</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                        <li class="nav-item click">
+                            <a class="nav-link active" href="contact.php" aria-current="page">Contact</a>
+                        </li>
                         </li>
                         <?php
-            if(isset($_SESSION['user_email'])){
-              echo "            <li class='nav-item'>
+                        if (isset($_SESSION['user_email'])) {
+                            echo "            <li class='nav-item'>
               <a class='nav-link' href='./user/Profile.php'>My Profile</a>
             </li>";
-            }else{
-              echo "            <li class='nav-item'>
+                        } else {
+                            echo "            <li class='nav-item'>
               <a class='nav-link' href='./user/user_registration.php'>Register</a>
             </li>";
-            }
-            ?>
+                        }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php cart_item(); ?></sup></a>
                         </li>
@@ -84,7 +110,7 @@ session_start();
                     <form class="d-flex" role="login">
                         <?php
 
-            
+
                         if (!isset($_SESSION['user_email'])) {
                             echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='./user/user_login.php'>Login</a></button>
                             
@@ -101,12 +127,12 @@ session_start();
                             </ul>
                           </nav>";
                         } else {
-                                                                //username
-            $user_ip = getIPAddress();
-            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
-            $result_name = mysqli_query($con, $select_query_name);
-            $row_name = mysqli_fetch_assoc($result_name);
-            $username = $row_name['username'];
+                            //username
+                            $user_ip = getIPAddress();
+                            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+                            $result_name = mysqli_query($con, $select_query_name);
+                            $row_name = mysqli_fetch_assoc($result_name);
+                            $username = $row_name['username'];
                             echo "
                             </form>
                             </ul>
@@ -116,7 +142,7 @@ session_start();
                             <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
                             <ul class='navbar-nav me-auto'>
                               <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome ".$username."</a>
+                                <a href='#' class='nav-link'>Welcome " . $username . "</a>
                               </li>
                               <li class='nav-item'>
                                 <a href='./user/logout.php' class='nav-link'>Logout</a>
