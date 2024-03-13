@@ -11,17 +11,20 @@
     <h3 class="text-success">All my Orders</h3>
     <br>
     <form method="post" action="" id="orderForm">
-    <div class="form-group row">
-            <label for="start_date" class="col-sm-2 col-form-label">Start Date:</label>
+    <div class="form-group row mx-2">
+            <label for="start_date" class="col-sm-1 col-form-label">Start Date:</label>
             <div class="col-sm-2">
                 <input type="date" class="form-control" id="start_date" name="start_date">
             </div>
-            <label for="end_date" class="col-sm-2 col-form-label">End Date:</label>
+            <label for="end_date" class="col-sm-1 col-form-label">End Date:</label>
             <div class="col-sm-2">
                 <input type="date" class="form-control" id="end_date" name="end_date">
             </div>
-            <div class="col-sm-2 ">
-                <input type="submit" class="btn btn-primary" name="submit" value="Fetch Orders" onclick="validateForm()">
+            <div class="col-sm-1 ">
+                <input type="submit" class="btn btn-danger" name="submit" value="Fetch Orders" onclick="validateForm()">
+            </div>
+            <div class="col-sm-2">
+                <input type="submit" class="btn btn-danger" name="submit1" value="All Orders">
             </div>
         </div>
     </form>
@@ -45,7 +48,7 @@
     $user_id = $row['user_id'];
 
     ?>
-    <table class="table table-bordered mt-5">
+    <table class="table table-bordered mt-5 mx-2">
         <thead>
             <tr>
                 <th class="bg-info">Order Id</th>
@@ -55,6 +58,7 @@
                 <th class="bg-info">Date</th>
                 <th class="bg-info">Complete/Incomplete</th>
                 <th class="bg-info">Status</th>
+                <th class="bg-info">Download</th>
             </tr>
         </thead>
         <tbody class="bg-info">
@@ -91,10 +95,11 @@
             <?php
                 if ($order_status == 'Complete') {
                     echo "<td class='bg-secondary text-light'>Paid</td>";
+                    echo "<td class='bg-danger text-light'><a href='download.php?order_id=$order_id' class='text-light'>Download Receipt</a></td>";
                 } else {
-                    echo "  <td class='bg-secondary'><a href='confirm_payment.php?order_id=$order_id' class='text-light'>Confirm</a></td>
-                                    
-                                    </tr>";
+                    echo "  <td class='bg-secondary'><a href='confirm_payment.php?order_id=$order_id' class='text-light'>Confirm</a></td>";
+                    echo "<td class='bg-secondary text-light'>Download Receipt</td></tr>";
+
                 }
                 $num = $num + 1;
             }

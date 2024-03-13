@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+*{
+   font-family: 'Rubik', sans-serif;
+   margin:0; padding:0;
+   box-sizing: border-box;
+   outline: none; border:none;
+   text-decoration: none;
+   transition:all .2s linear;
+}
+.card-img-top{
+   width:100%;
+   height:200px;
+   object-fit:contain;
+}
+.book-cover {
+   object-fit: contain !important;
+   height: auto !important;
+}
+.latest{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color:black;
+    font-size: 2.5rem;
+ }
+ 
+ .about .flex{
+    max-width: 1200px;
+    margin:0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+ }
+ 
+ .about .flex .image{
+    flex:1 1 25rem;
+ }
+ 
+ .about .flex .image img{
+    width: 100%;
+ }
+ 
+ .about .flex .content{
+    flex:1 1 40rem;
+    padding:2rem;
+    background-color:light;
+ }
+ 
+ .about .flex .content h3{
+    font-size: 2.5rem;
+    color:black;
+    text-transform: uppercase;
+ }
+ 
+ .about .flex .content p{
+    padding:1rem 0;
+    line-height: 2;
+    font-size: 1.2rem;
+    color:light;
+ }
+ 
+ .btn1,
+ .option-btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:0.5rem 0.9rem;
+    cursor: pointer;
+    color:white;
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    text-transform: capitalize;
+    text-decoration: none;
+ }
+ 
+ .btn1:hover,
+ .option-btn:hover{
+    background-color: black;
+ }
+ 
+ .btn1,.option-btn{
+    background-color: rgb(18, 179, 238);
+ }
+ .click:hover {
+    font-weight: 900;
+    /* font-size:17px; */
+  }
+
+  .click1:hover {
+    background-color: rgb(128, 128, 128, 1);
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .click2:hover {
+    background-color: rgb(0, 183, 249, 1);
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .title1 {
+    height:25vw;
+    background-attachment: fixed;
+    color: white;
+    object-fit:contain;
+  }
+
+
+  .autocomplete {
+   position: relative;
+   margin-right:10px;
+}
+
+  #search_data {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  #search_data_list {
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+    background-color: #fff;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    display: none;
+  }
+
+  #search_data_list li {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  #search_data_list li:hover {
+    background-color: #f4f4f4;
+  }
+  .logo {
+    width: 3%;
+    height: 3%;
+    border-radius: 25px;
+}
+
+body {
+    overflow-x: hidden;
+}
+.footer {
+    background-color: rgb(0, 183, 249, 1);
+  }

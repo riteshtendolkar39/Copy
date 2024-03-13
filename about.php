@@ -18,9 +18,8 @@ session_start();
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!--css files-->
-  <link rel="stylesheet" href="style.css">
   <!-- <link rel="stylesheet" href="./css/style1.css"> -->
-  <link rel="stylesheet" href="./css/style2.css">
+  <link rel="stylesheet" href="./css/style1.css">
 
   <style>
     .logo {
@@ -114,7 +113,7 @@ session_start();
             <h3>why choose us?</h3>
             <p>Our mission is to provide customers with a convenient, affordable, and accessible way to purchase books.We believe that everyone should have access to a wide selection of titles at affordable prices.</p>
             <p>We offer features like friendly user interface, wide selection of books, selection based on search and categories & sub-categories</p>
-            <a href="contact.php" class="btn">contact us</a>
+            <a href="contact.php" class="btn1">contact us</a>
           </div>
         </div>
       </div>

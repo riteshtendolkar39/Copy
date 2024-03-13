@@ -47,8 +47,7 @@ if (isset($_POST['update_cart'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--css files-->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="./css/style2.css">
+      <link rel="stylesheet" href="./css/style1.css">
 
     <style>
         .cart_img {
@@ -71,7 +70,7 @@ if (isset($_POST['update_cart'])) {
         <!--first child-->
         <nav class="navbar navbar-expand-lg bg-info">
             <div class="container-fluid">
-                <img src="./images/logo.jpg" alt="" class="logo">
+                <img src="./images/logo2.jpeg" alt="" class="logo">
                 <a class="navbar-brand ms-2 text-secondary" href="index.php">Books</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -211,7 +210,7 @@ if (isset($_POST['update_cart'])) {
                                     <tr>
                                         <td> <?php echo "$product_title"; ?></td>
                                         <td><img src="./admin/product_images/<?php echo "$product_image"; ?>" alt="" class="cart_img"></td>
-                                        <td><input type="number" min="1" value="<?php echo $qty ?>" name="qty[<?php echo $product_id; ?>]" class="form-input w-10"> <input type="submit" value="Update" class="bg-info mx-3 px-3 py-2 border-0" name="update_cart"></td>
+                                        <td><input type="number" min="1" value="<?php echo $qty ?>" name="qty[<?php echo $product_id; ?>]" class="form-input w-10"> <input type="submit" value="Update" class="bg-info mx-3 px-3 py-2 border-0 rounded-3" name="update_cart"></td>
                                         <td><?php echo "$price_table"; ?></td>
                                         <td>
                                             <?php echo $subtotal = number_format($price_table * $qty);
@@ -249,10 +248,10 @@ if (isset($_POST['update_cart'])) {
                         $result_count = mysqli_num_rows($result);
                         if ($result_count > 0) {
                             echo "<h4 class='px-3'>Subtotal:<strong class='text-info'>$total_price /- </strong></h4>
-                                <input type='submit' value='Continue Shopping' class='bg-info px-3 mx-3 py-2 border-0' name='continue_shopping'>                                
-                                <button class='bg-secondary p-3 py-2 border-0'><a href='./user/checkout.php' class='text-light text-decoration-none'>Checkout</a></button>'";
+                                <input type='submit' value='Continue Shopping' class='bg-info px-3 mx-3 py-2 border-0 rounded-3' name='continue_shopping'>                                
+                                <button class='bg-secondary p-3 py-2 border-0 rounded-3'><a href='./user/checkout.php' class='text-light text-decoration-none '>Checkout</a></button>'";
                         } else {
-                            echo "<input type='submit' value='Continue Shopping' class='bg-info px-3 mx-3 py-2 border-0' name='continue_shopping'>";
+                            echo "<input type='submit' value='Continue Shopping' class='bg-info px-3 mx-3 py-2 border-0 rounded-3' name='continue_shopping'>";
                         }
                         if (isset($_POST['continue_shopping'])) {
                             echo "<script>window.open('index.php','_self')</script>";

@@ -84,20 +84,20 @@ echo "                            <p class='text-light text-center'>$admin_name<
 ";
 ?>                </div>
                 <div class="button text-center">
-                    <button class="mx-1"><a href="insert_product.php" class="nav-link text-light bg-info my-1">Insert Products</a></button>
-                    <button class="mx-1"><a href="index.php?view_products" class="nav-link text-light bg-info my-1">View Products</a></button>
-                    <button class="mx-1"><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert Categories</a></button>
-                    <button class="mx-1"><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">View Categories</a></button>
-                    <button class="mx-1"><a href="index.php?insert_subcat" class="nav-link text-light bg-info my-1">Insert Sub-Categories</a></button>
-                    <button class="mx-1"><a href="index.php?view_subcat" class="nav-link text-light bg-info my-1">View Sub-Categories</a></button>
-                    <button class="mx-1"><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All Orders</a></button>
-                    <button class="mx-1"><a href="index.php?lit_payments" class="nav-link text-light bg-info my-1">All Payments</a></button>
-                    <button class="mx-1"><a href="index.php?list_users" class="nav-link text-light bg-info my-1">List users</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="insert_product.php" class="nav-link text-light my-1">Insert Products</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="index.php?view_products" class="nav-link text-light my-1">View Products</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="index.php?insert_category" class="nav-link text-light my-1">Insert Categories</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="index.php?view_categories" class="nav-link text-light my-1">View Categories</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="index.php?insert_subcat" class="nav-link text-light my-1">Insert Sub-Categories</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="index.php?view_subcat" class="nav-link text-light my-1">View Sub-Categories</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="index.php?list_orders" class="nav-link text-light my-1">All Orders</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="index.php?lit_payments" class="nav-link text-light my-1">All Payments</a></button>
+                    <button class="mx-1 btn btn-danger"><a href="index.php?list_users" class="nav-link text-light my-1">List users</a></button>
                     <?php
                         if (!isset($_SESSION['admin_email'])) {
                             echo "<script>window.open('admin_login.php','_self')</script>";
                         } else {
-                            echo "                    <button class='mx-1'><a href='admin_login.php' class='nav-link text-light bg-info my-1'>Logout</a></button>'                            ";
+                            echo "                    <button class='mx-1 btn btn-danger'><a href='admin_login.php' class='nav-link text-light bg-danger my-1'>Logout</a></button>'                            ";
                         }
 
                         ?>

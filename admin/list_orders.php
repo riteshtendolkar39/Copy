@@ -1,9 +1,46 @@
 <h3 class="text-center text-success">ALl orders</h3>
+<br>
+    <form method="post" action="" id="orderForm">
+    <div class="form-group row mx-2">
+            <label for="start_date" class="col-sm-1 col-form-label">Start Date:</label>
+            <div class="col-sm-2">
+                <input type="date" class="form-control" id="start_date" name="start_date">
+            </div>
+            <label for="end_date" class="col-sm-1 col-form-label">End Date:</label>
+            <div class="col-sm-2">
+                <input type="date" class="form-control" id="end_date" name="end_date">
+            </div>
+            <div class="col-sm-2 ">
+                <input type="submit" class="btn btn-danger" name="submit" value="Fetch Orders" onclick="validateForm()">
+            </div>
+            <div class="col-sm-1">
+                <input type="submit" class="btn btn-danger" name="submit1" value="All Orders">
+            </div>
+        </div>
+    </form>
+    <script>
+        function validateForm() {
+            var startDate = document.getElementById('start_date').value;
+            var endDate = document.getElementById('end_date').value;
+
+            if (startDate === "" || endDate === "") {
+                alert("Please select both start and end dates.");
+                event.preventDefault(); // Prevent form submission
+            }
+        }
+    </script>
+
 <table class="table table-bordered mt-5">
         <thead>
         <?php
-            $get_orders="select * from `user_orders`";
-            $result=mysqli_query($con,$get_orders);
+                    if (isset($_POST['submit'])) {
+                      $start_date = $_POST['start_date'];
+                      $end_date = $_POST['end_date'];
+                      $get_order = "select * from `user_orders` where order_date BETWEEN '$start_date' AND '$end_date'";
+                  } else {
+                    $get_order="select * from `user_orders`";
+                  }
+            $result=mysqli_query($con,$get_order);
             $row_count=mysqli_num_rows($result);
             if($row_count==0){
                 echo "<h2 class='text-center mt-5 text-danger'>No orders yet </h2>";
