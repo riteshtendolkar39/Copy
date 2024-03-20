@@ -27,6 +27,7 @@ session_start();
    color: white;
    padding: 10vw;
  }
+ 
 </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -69,14 +70,17 @@ session_start();
 
 
         <!--second child-->
+        <section>
         <div class="title">
             <h1>If you want to make intelligent, get books from here</h1>
             <p>Shop now!</p>
         </div>
+    </section>
 
 
         <!--third child-->
         <!--products-->
+        <section>
         <div class="row mt-5">
             <div class="col-md-2 bg-secondary  p-0">
                 <!-- category -->
@@ -116,6 +120,8 @@ session_start();
                 </div>
             </div>
         </div>
+        </section>
+
 
 
         <!--last child-->
