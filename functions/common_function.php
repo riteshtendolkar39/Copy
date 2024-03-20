@@ -348,12 +348,12 @@ function cart()
     $num_of_rows = mysqli_num_rows($result_query);
     if ($num_of_rows > 0) {
       echo "<script>alert('This item is already is present inside cart')</script>";
-      echo "<script>window.open('index.php','_self')</script>";
+      echo "<script>window.open('display_all.php','_self')</script>";
     } else {
       $insert_query = "insert into `cart_details` (product_id,ip_address,quantity) values ($get_product_id,'$get_ip_address',1)";
       $result_query = mysqli_query($con, $insert_query);
       echo "<script>alert('Item is added to cart')</script>";
-      echo "<script>window.open('index.php','_self')</script>";
+      echo "<script>window.open('display_all.php','_self')</script>";
     }
   }
 }
