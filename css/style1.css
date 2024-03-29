@@ -76,7 +76,7 @@
     text-decoration: none;
  }
  
- .btn1:hover,
+ .btn1:hover,.btn2:hover,
  .option-btn:hover{
     background-color: black;
  }
@@ -154,3 +154,91 @@ body {
 .footer {
     background-color: rgb(0, 183, 249, 1);
   }
+
+   /* Add responsive styles */
+   @media screen and (max-width: 768px) {
+      .title1 {
+        height: auto;
+        /* Adjust height as needed */
+        padding: 5vw;
+        /* Reduce padding for smaller screens */
+      }
+    }
+
+    .title {
+      height: 25vw;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../book.jpg');
+      text-align: center;
+      color: white;
+      padding: 10vw;
+    }
+
+ /* about.php */
+    .title2 {
+      min-height: 30vh;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      background: url('../images/heading-bg.webp') no-repeat;
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+
+
+/* contact.php */
+.contact {
+   margin: 50px auto;
+   max-width: 600px;
+   padding: 20px;
+   background-color: #f9f9f9;
+   border-radius: 10px;
+   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   border:1px solid black;
+ }
+ 
+ .box {
+   width: 100%;
+   margin-bottom: 20px;
+   padding: 10px;
+   border: 1px solid black;
+   border-radius: 5px;
+   font-size: 16px;
+ }
+ 
+ .box:focus {
+   outline: none;
+   border-color: #007bff; /* change to your preferred focus color */
+ }
+ 
+ .box::placeholder {
+   color: black;
+ }
+ 
+ textarea.box {
+   resize: vertical;
+   min-height: 100px;
+ }
+ 
+ .btn2 {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(18, 179, 238);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: background-color 0.3s ease;
+  margin-left:40%;
+}
+
+ @media screen and (max-width: 768px) {
+   .contact {
+     margin: 20px;
+     padding: 10px;
+   }
+ }

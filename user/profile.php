@@ -25,7 +25,7 @@ $user_image = $row_image['user_image'];
 
     <!--css files-->
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="../css/style1.css">
+    <link rel="stylesheet" href="../css/style2.css">
     <style>
         .logo {
             width: 3%;
@@ -67,7 +67,7 @@ $user_image = $row_image['user_image'];
 
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item click">
+                        <li class="nav-item click">
                             <a class="nav-link"></a>
                         </li>
                         <li class="nav-item click">
@@ -101,14 +101,14 @@ $user_image = $row_image['user_image'];
                         </li>
 
                     </ul>
-            <?php
-            // $username = substr($_SESSION["user_email"], 0, strpos($_SESSION["user_email"], '@'));
+                    <?php
+                    // $username = substr($_SESSION["user_email"], 0, strpos($_SESSION["user_email"], '@'));
 
-            //username
+                    //username
 
 
-            if (!isset($_SESSION['user_email'])) {
-              echo "
+                    if (!isset($_SESSION['user_email'])) {
+                        echo "
                             </ul>
                         </div>
                     </div>
@@ -123,13 +123,13 @@ $user_image = $row_image['user_image'];
                               </li>
                             </ul>
                           </nav>";
-            } else {
-              $user_ip = getIPAddress();
-              $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
-              $result_name = mysqli_query($con, $select_query_name);
-              $row_name = mysqli_fetch_assoc($result_name);
-              $username = $row_name['username'];
-              echo "
+                    } else {
+                        $user_ip = getIPAddress();
+                        $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+                        $result_name = mysqli_query($con, $select_query_name);
+                        $row_name = mysqli_fetch_assoc($result_name);
+                        $username = $row_name['username'];
+                        echo "
                             </form>
                             </ul>
                         </div>
@@ -145,10 +145,10 @@ $user_image = $row_image['user_image'];
                               </li>
                             </ul>
                           </nav>";
-            }
+                    }
 
-            ?>
-          </form>
+                    ?>
+                    </form>
                     </ul>
                 </div>
             </div>
@@ -190,17 +190,17 @@ $user_image = $row_image['user_image'];
                 if (isset($_GET['delete_account'])) {
                     include('./delete_account.php');
                 }
-                if(isset($_GET['my_products'])){
+                if (isset($_GET['my_products'])) {
                     include('./my_products.php');
                 }
-                if(isset($_GET['my_products'])){
+                if (isset($_GET['my_products'])) {
                     include('./my_products.php');
                 }
                 ?>
             </div>
             <div class="col-md-2">
                 <ul class="navbar-nav bg-secondary text-center" style="height:100vh">
-                    <li class="nav-item bg-info">
+                    <li class="nav-item bg-info click1">
                         <a class="nav-link text-light" href="#">
                             <h4>Your Profile</h4>
                             <?php echo "<li class='nav-item'>
@@ -208,32 +208,32 @@ $user_image = $row_image['user_image'];
 </li>"; ?>
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item click1">
                         <a class="nav-link text-light" href="profile.php">
                             Pending Orders
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item click1">
                         <a class="nav-link text-light" href="profile.php?edit_account">
                             Edit Acount
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item click1">
                         <a class="nav-link text-light" href="profile.php?my_orders">
                             My Orders
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item click1">
                         <a class="nav-link text-light" href="profile.php?my_products">
-                        Product History
+                            Product History
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item click1">
                         <a class="nav-link text-light" href="profile.php?delete_account">
                             Delete Account
                         </a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item click1">
                         <a class="nav-link text-light" href="logout.php">
                             Logout
                     </li>
