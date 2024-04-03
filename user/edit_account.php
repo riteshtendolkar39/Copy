@@ -35,7 +35,7 @@ if(isset($_POST['user_update'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Account</title>
 </head>
 <body>
     <h3 class="text-success mb-4 mt-4">Edit Account</h3>
@@ -58,6 +58,5 @@ if(isset($_POST['user_update'])){
         </div>
         <input type="submit" value="Update" class="bg-info py-2 px-3 border-0" name="user_update">
     </form> 
-    <!-- ritesh -->
 </body>
 </html>

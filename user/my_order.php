@@ -10,36 +10,40 @@
 <body>
     <h3 class="text-success">All my Orders</h3>
     <br>
-    <form method="post" action="" id="orderForm">
-    <div class="form-group row mx-2">
-            <label for="start_date" class="col-sm-1 col-form-label">Start Date:</label>
-            <div class="col-sm-2">
-                <input type="date" class="form-control" id="start_date" name="start_date">
+    <!-- filter -->
+    <section>
+        <form method="post" action="" id="orderForm">
+            <div class="form-group row mx-2">
+                <label for="start_date" class="col-sm-1 col-form-label">Start Date:</label>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control" id="start_date" name="start_date">
+                </div>
+                <label for="end_date" class="col-sm-1 col-form-label">End Date:</label>
+                <div class="col-sm-2">
+                    <input type="date" class="form-control" id="end_date" name="end_date">
+                </div>
+                <div class="col-sm-1 ">
+                    <input type="submit" class="btn btn-danger" name="submit" value="Fetch Orders" onclick="validateForm()">
+                </div>
+                <div class="col-sm-2">
+                    <input type="submit" class="btn btn-danger" name="submit1" value="All Orders">
+                </div>
             </div>
-            <label for="end_date" class="col-sm-1 col-form-label">End Date:</label>
-            <div class="col-sm-2">
-                <input type="date" class="form-control" id="end_date" name="end_date">
-            </div>
-            <div class="col-sm-1 ">
-                <input type="submit" class="btn btn-danger" name="submit" value="Fetch Orders" onclick="validateForm()">
-            </div>
-            <div class="col-sm-2">
-                <input type="submit" class="btn btn-danger" name="submit1" value="All Orders">
-            </div>
-        </div>
-    </form>
-    <script>
-        function validateForm() {
-            var startDate = document.getElementById('start_date').value;
-            var endDate = document.getElementById('end_date').value;
+        </form>
+        <script>
+            function validateForm() {
+                var startDate = document.getElementById('start_date').value;
+                var endDate = document.getElementById('end_date').value;
 
-            if (startDate === "" || endDate === "") {
-                alert("Please select both start and end dates.");
-                event.preventDefault(); // Prevent form submission
+                if (startDate === "" || endDate === "") {
+                    alert("Please select both start and end dates.");
+                    event.preventDefault(); // Prevent form submission
+                }
             }
-        }
-    </script>
+        </script>
+    </section>
 
+    
     <?php
     $user_email = $_SESSION['user_email'];
     $get_user = "select * from `user_table` where user_email='$user_email'";
@@ -99,7 +103,6 @@
                 } else {
                     echo "  <td class='bg-secondary'><a href='confirm_payment.php?order_id=$order_id' class='text-light'>Confirm</a></td>";
                     echo "<td class='bg-secondary text-light'>Download Receipt</td></tr>";
-
                 }
                 $num = $num + 1;
             }

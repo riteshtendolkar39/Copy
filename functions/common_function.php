@@ -76,9 +76,9 @@ function get_all_products()
       </div>
     </div>";
         }
-      }else{
+      } else {
         echo '<p class="m-auto py-4 px-2 text-danger text-center fs-3 border border-2 border-primary rounded-3 w-25">no products added yet!</p>';
-     }
+      }
     }
   }
 }

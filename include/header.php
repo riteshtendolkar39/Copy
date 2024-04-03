@@ -56,7 +56,7 @@
                 $result_name = mysqli_query($con, $select_query_name);
                 $row_name = mysqli_fetch_assoc($result_name);
                 $username = $row_name['username'];
-                 if (isset($_SESSION['user_email'])) {
+                if (isset($_SESSION['user_email'])) {
                     echo "<li class='nav-item  click'>
                     <a href='#' class='nav-link'>Welcome " . $username . "</a>
                 </li>";
@@ -67,8 +67,8 @@
                 }
                 ?></ul>
             <form class="d-flex" action="search_product.php" method="get">
-                
-                
+
+
                 <div class="autocomplete">
                     <input type="text" id="search_data" name="search_data" class="mr-2 form-control" placeholder="Search products...">
                     <ul id="search_data_list"></ul>
@@ -77,11 +77,5 @@
                     <i class="fas fa-search"></i> <!-- Search icon -->
                 </button>
             </form>
-    </div>
+        </div>
 </nav>
-
-
-
-
-
-

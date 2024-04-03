@@ -9,7 +9,7 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-  <title>Online Book Shopping Ecommerce Website</title>
+  <title>Home Page</title>
 
   <!-- bootstrap css link-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -19,7 +19,10 @@ session_start();
 
   <!--css files-->
   <link rel="stylesheet" href="./css/style2.css">
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <!-- search logic -->
   <script>
     $(document).ready(function() {
       $('#search_data').keyup(function() {
@@ -47,6 +50,7 @@ session_start();
       });
     });
   </script>
+
 </head>
 
 <body>
@@ -59,6 +63,8 @@ session_start();
     <!-- calling cart function -->
     <?php cart(); ?>
 
+    <!-- second child  -->
+    <!-- sliding images -->
     <section>
       <div id="carouselExampleCaptions" class="carousel slide">
         <div class="carousel-indicators">
@@ -71,19 +77,19 @@ session_start();
             <img src="./images/title1.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h1>If you want to be intelligent, get books from here</h1>
-              <p>Shop now!</p>
+              <p class="bg-danger text-white m-auto rounded-2" style="width:15%;"><a href="display_all.php" class="text-white" style="text-decoration:none">Shop now!</a></p>
             </div>
           </div>
           <div class="carousel-item title1">
             <img src="./images/title2.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <p>Shop now!</p>
+              <p class="bg-danger text-white m-auto rounded-2" style="width:15%"><a href="display_all.php" class="text-white" style="text-decoration:none">Shop now!</a></p>
             </div>
           </div>
           <div class="carousel-item title1">
             <img src="./images/title3.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <p>Shop now!</p>
+              <p class="bg-danger text-white m-auto rounded-2" style="width:15%"><a href="display_all.php" class="text-white" style="text-decoration:none">Shop now!</a></p>
             </div>
           </div>
         </div>
@@ -98,48 +104,44 @@ session_start();
       </div>
     </section>
 
-
-
     <!--third child-->
     <!--products-->
-    <div class="mt-5 container">
-      <div class="row">
-        <!-- fetching products -->
-        <?php
-        // calling function
-        getproducts();
-        ?>
+    <section>
+      <div class="mt-5 container">
+        <div class="row">
+          <!-- fetching products -->
+          <?php
+          // calling function
+          getproducts();
+          ?>
+        </div>
       </div>
-    </div>
-    <div style="margin-top: 2rem; text-align:center">
-      <a href="display_all.php" class="option-btn">load more</a>
-    </div>
+      <div style="margin-top: 2rem; text-align:center">
+        <a href="display_all.php" class="option-btn">load more</a>
+      </div>
+    </section>
 
+    <!-- fourth child -->
+    <!-- about  -->
     <section class="about mt-5">
-
       <div class="flex">
-
         <div class="image">
           <img src="./images/about-img.jpg" alt="">
         </div>
-
         <div class="content">
           <h3>about us</h3>
           <p>Our mission is to provide customers with a convenient, affordable, and accessible way to purchase books.We believe that everyone should have access to a wide selection of titles at affordable prices.</p>
           <a href="about.php" class="btn1">read more</a>
         </div>
-
       </div>
-
     </section>
 
     <!--last child-->
     <?php include('./footer/footer.php') ?>
+  </div>
 
-
-
-    <!-- bootstrap js link-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <!-- bootstrap js link-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>

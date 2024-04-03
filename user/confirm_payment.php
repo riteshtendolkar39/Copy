@@ -24,14 +24,16 @@ if(isset($_POST['confirm_payment'])){
     $result_orders=mysqli_query($con,$update_orders);
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Confirm Payment</title>
         <!-- bootstrap css link-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
 <body class="bg-secondary">
     <h3 class="text-center text-light">Confirm Payment</h3>

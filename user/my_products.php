@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my orders</title>
+    <title>My Products</title>
 </head>
 
 <body>
@@ -35,23 +35,24 @@
             $num = 1;
             while ($row_order = mysqli_fetch_assoc($result_order)) {
                 $order_id = $row_order['order_id'];
-            $product_id=$row_order['product_id'];
-            
-            $get_products = "select * from `products` where product_id=$product_id";
-            $result_products = mysqli_query($con, $get_products);
+                $product_id = $row_order['product_id'];
 
-            while ($row_data = mysqli_fetch_assoc($result_products)) {
-                $product_title=$row_data['product_title'];
-                $product_image=$row_data['product_image'];
-                $product_price=$row_data['product_price'];
-                echo "<tr>
+                $get_products = "select * from `products` where product_id=$product_id";
+                $result_products = mysqli_query($con, $get_products);
+
+                while ($row_data = mysqli_fetch_assoc($result_products)) {
+                    $product_title = $row_data['product_title'];
+                    $product_image = $row_data['product_image'];
+                    $product_price = $row_data['product_price'];
+                    echo "<tr>
                                 <td class='bg-secondary text-light'>$num</td>
                                 <td class='bg-secondary text-light'>$order_id</td>
                                 <td class='bg-secondary text-light'>$product_title</td>
                                 <td class='bg-secondary text-light'><img src='../images/$product_image' class='edit_image'></td>
                                 <td class='bg-secondary text-light'>$product_price</td>";
-                                $num++;
-                            }}
+                    $num++;
+                }
+            }
             ?>
 
         </tbody>

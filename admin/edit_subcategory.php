@@ -19,7 +19,7 @@ if(isset($_POST['update_cat'])){
 }
 ?>
 <div class="container mt-3">
-    <h1 class="text-center">Edit Category</h1>
+    <h1 class="text-center">Edit Sub-Category</h1>
     <form action="" method="post" class="text-center">
         <div class="form-outline mb-4 w-50 m-auto">
             <label for="subcategory_title" class="form-label">Sub-Category Title</label>
