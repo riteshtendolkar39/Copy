@@ -17,6 +17,7 @@ session_start();
 
     <!-- font awesome link-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
 
     <style>
         .admin_image {
@@ -27,10 +28,6 @@ session_start();
         .footer {
             position: absolute;
             bottom: 0;
-        }
-
-        body {
-            overflow-x: hidden;
         }
 
         .product_img {
@@ -46,7 +43,7 @@ session_start();
         <!--first child-->
         <nav class="navbar navbar-expand-lg bg-info">
             <div class="container-fluid">
-                <img src="../images/logo.jpg" class="logo op">
+                <img src="../images/logo2.jpeg" class="logo">
                 <nav class="navbar navbar-expand-lg bg-info">
                     <ul class="navbar-nav">
                         <li class="nav-item">
@@ -92,12 +89,12 @@ echo "                            <p class='text-light text-center'>$admin_name<
                     <button class="mx-1 btn btn-danger"><a href="index.php?view_subcat" class="nav-link text-light my-1">View Sub-Categories</a></button>
                     <button class="mx-1 btn btn-danger"><a href="index.php?list_orders" class="nav-link text-light my-1">All Orders</a></button>
                     <button class="mx-1 btn btn-danger"><a href="index.php?lit_payments" class="nav-link text-light my-1">All Payments</a></button>
-                    <button class="mx-1 btn btn-danger"><a href="index.php?list_users" class="nav-link text-light my-1">List users</a></button>
+                    <button class="mx-1 btn btn-danger my-2"><a href="index.php?list_users" class="nav-link text-light my-1">List users</a></button>
                     <?php
                         if (!isset($_SESSION['admin_email'])) {
                             echo "<script>window.open('admin_login.php','_self')</script>";
                         } else {
-                            echo "                    <button class='mx-1 btn btn-danger'><a href='admin_login.php' class='nav-link text-light bg-danger my-1'>Logout</a></button>'                            ";
+                            echo "                    <button class='mx-1 my-2 btn btn-danger'><a href='admin_login.php' class='nav-link text-light bg-danger my-1'>Logout</a></button>                            ";
                         }
 
                         ?>

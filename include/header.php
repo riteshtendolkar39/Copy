@@ -25,7 +25,7 @@
                 <?php
                 if (isset($_SESSION['user_email'])) {
                     echo "<li class='nav-item click'>
-                            <a class='nav-link' href='./user/Profile.php'>My Profile</a>
+                            <a class='nav-link' href='./user/profile.php'>My Profile</a>
                         </li>";
                 } else {
                     echo "<li class='nav-item click'>
@@ -79,3 +79,9 @@
             </form>
     </div>
 </nav>
+
+
+
+
+
+

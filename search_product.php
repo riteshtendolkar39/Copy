@@ -62,7 +62,7 @@ include('include/header.php');
 
         <!--second child-->
         <div class="title">
-            <h1>If you want to make intelligent, get books from here</h1>
+            <h1>If you want to be intelligent, get books from here</h1>
             <p>Shop now!</p>
         </div>
 

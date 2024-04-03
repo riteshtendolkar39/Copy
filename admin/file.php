@@ -1,1 +1,0 @@
-<p class='text-light text-center'>Admin Name</p>

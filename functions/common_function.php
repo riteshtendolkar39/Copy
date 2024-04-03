@@ -8,18 +8,19 @@ function getproducts()
   // condition to check isset or not
   if (!isset($_GET['category'])) {
     if (!isset($_GET['sub-category'])) {
-      $select_query = "select * from `products` order by rand() limit 0,3";
+      $select_query = "select * from `products` order by rand() limit 0,4";
       $result_query = mysqli_query($con, $select_query);
-      while ($row = mysqli_fetch_assoc($result_query)) {
-        $product_id = $row['product_id'];
-        $product_title = $row['product_title'];
-        $product_description = $row['product_description'];
-        $product_author = $row['product_author'];
-        $product_image = $row['product_image'];
-        $product_price = $row['product_price'];
-        $category_id = $row['category_id'];
-        $subcat_id = $row['subcat_id'];
-        echo "        <div class='col-md-3 mb-2'>
+      if (mysqli_num_rows($result_query) > 0) {
+        while ($row = mysqli_fetch_assoc($result_query)) {
+          $product_id = $row['product_id'];
+          $product_title = $row['product_title'];
+          $product_description = $row['product_description'];
+          $product_author = $row['product_author'];
+          $product_image = $row['product_image'];
+          $product_price = $row['product_price'];
+          $category_id = $row['category_id'];
+          $subcat_id = $row['subcat_id'];
+          echo "        <div class='col-md-3 mb-2'>
       <div class='card' style='width: 18rem;'>
         <img src='./admin/product_images/$product_image' class='card-img-top' alt'...'>
         <div class='card-body'>
@@ -32,6 +33,9 @@ function getproducts()
         </div>
       </div>
     </div>";
+        }
+      } else {
+        echo '<p class="m-auto py-4 px-2 text-danger text-center fs-3 border border-2 border-primary rounded-3 w-25">no products added yet!</p>';
       }
     }
   }
@@ -48,18 +52,19 @@ function get_all_products()
     if (!isset($_GET['sub-category'])) {
       $select_query = "select * from `products` order by rand()";
       $result_query = mysqli_query($con, $select_query);
-      while ($row = mysqli_fetch_assoc($result_query)) {
-        $product_id = $row['product_id'];
-        $product_title = $row['product_title'];
-        $product_description = $row['product_description'];
-        $product_author = $row['product_author'];
-        $product_image = $row['product_image'];
-        $product_price = $row['product_price'];
-        $category_id = $row['category_id'];
-        $subcat_id = $row['subcat_id'];
-        echo "        <div class='col-md-3 mb-2'>
+      if (mysqli_num_rows($result_query) > 0) {
+        while ($row = mysqli_fetch_assoc($result_query)) {
+          $product_id = $row['product_id'];
+          $product_title = $row['product_title'];
+          $product_description = $row['product_description'];
+          $product_author = $row['product_author'];
+          $product_image = $row['product_image'];
+          $product_price = $row['product_price'];
+          $category_id = $row['category_id'];
+          $subcat_id = $row['subcat_id'];
+          echo "        <div class='col-md-3 mt-3'>
       <div class='card' style='width: 18rem;'>
-        <img src='./admin/product_images/$product_image' class='card-img-top' alt'...'>
+        <img src='./admin/product_images/$product_image' class='card-img-top' alt='...'>
         <div class='card-body'>
           <h5 class='card-title'>$product_title</h5>
           <p class='card-text'>$product_description</p>
@@ -70,7 +75,10 @@ function get_all_products()
         </div>
       </div>
     </div>";
-      }
+        }
+      }else{
+        echo '<p class="m-auto py-4 px-2 text-danger text-center fs-3 border border-2 border-primary rounded-3 w-25">no products added yet!</p>';
+     }
     }
   }
 }
@@ -140,7 +148,8 @@ function get_unqiue_subcategory()
       $product_price = $row['product_price'];
       $category_id = $row['category_id'];
       $subcat_id = $row['subcat_id'];
-      echo "        <div class='col-md-3 mb-2'>
+      echo "
+              <div class='col-md-3 mb-2'>
       <div class='card' style='width: 18rem;'>
         <img src='./admin/product_images/$product_image' class='card-img-top' alt'...'>
         <div class='card-body'>

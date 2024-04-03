@@ -48,6 +48,14 @@ session_start();
             });
         });
     </script>
+    <style>
+         @media screen and (max-width: 768px) {
+  .title {
+      height: auto; /* Adjust height as needed */
+      padding: 5vw; /* Reduce padding for smaller screens */
+  }
+}
+    </style>
 </head>
 
 <body>
@@ -62,7 +70,7 @@ session_start();
         <!--second child-->
         <section>
         <div class="title">
-            <h1>If you want to make intelligent, get books from here</h1>
+            <h1>If you want to be intelligent, get books from here</h1>
             <p>Shop now!</p>
         </div>
     </section>
@@ -75,13 +83,14 @@ session_start();
             <div class="col-md-2 bg-secondary  p-0">
                 <!-- category -->
                 <ul class="navbar-nav  me-auto text-center ">
-                    <li class="nav-item bg-info">
-                        <a href="#" class="nav-link text-light ">
+                    <li class='nav-item bg-info'>
+                        <a href='#' class='nav-link text-light '>
                             <h4>Categories</h4>
                         </a>
                     </li>
                     <?php
                     // calling function
+                    
                     getcategories();
                     ?>
                 </ul>

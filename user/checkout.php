@@ -31,112 +31,77 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!--css files-->
-    <link rel="stylesheet" href="../style.css">
-    <style>
-        .logo{
-    width:3%;
-    height:3%;
-    border-radius:25px;
-}
-    </style>
+    <link rel="stylesheet" href="../css/style2.css">
 </head>
 
 <body>
     <!-- navbar-->
     <div class="container-fluid p-0">
         <!--first child-->
-        <nav class="navbar navbar-expand-lg bg-info">
-            <div class="container-fluid">
-                <img src="../images/logo.jpg" alt="" class="logo">
-                <a class="navbar-brand ms-2" href="#">Books</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+        <nav class="navbar navbar-expand-lg bg-info ">
+    <div class="container-fluid">
+        <img src="../images/logo2.jpeg" alt="" class="logo">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <form class="d-flex" action="search_product.php" method="get">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-                            <input type="submit" class="btn btn-outline-success" value="search" name="search_data_product">
-                        </form>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../display_all.php">All Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./user_registration.php">Register</a>
-                        </li>
-
-                    </ul>
-                    <form class="d-flex" role="login">
-                    <?php
-            // $username = substr($_SESSION["user_email"], 0, strpos($_SESSION["user_email"], '@'));
-
-            //username
-            $user_ip = getip();
-            $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
-            $result_name = mysqli_query($con, $select_query_name);
-            $row_name = mysqli_fetch_assoc($result_name);
-            $username = $row_name['username'];
-
-            if (!isset($_SESSION['user_email'])) {
-              echo " <button type='submit' class='btn btn-outline-success'><a class='nav-link' href='user_login.php'>Login</a></button>
-              
-              </form>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
-                            <ul class='navbar-nav me-auto'>
-                              <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome Guest</a>
-                              </li>
-                            </ul>
-                          </nav>";
-            } else {
-              echo "
-                            </form>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-                            <nav class='navbar navbar-expand-lg navbar-dark bg-secondary'>
-                            <ul class='navbar-nav me-auto'>
-                              <li class='nav-item'>
-                                <a href='#' class='nav-link'>Welcome " . $username . "</a>
-                              </li>
-                              <li class='nav-item ms-2'>
-                                <a href='logout.php' class='nav-link'>Logout</a>
-                              </li>
-                            </ul>
-                          </nav>";
-            }
-
-            ?>
-                        <!-- <a class="nav-link disabled" aria-disabled="true">
-                            <button class="btn btn-outline-success" type="submit">Login</button></a> -->
-                    </form>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-
-
-        <!--second child-->
-        <div class="title">
-            <h1>If you want to make intelligent, get books from here</h1>
-            <p>Shop now!</p>
-        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ">
+                    <a class="nav-link"></a>
+                </li>
+                <li class="nav-item click">
+                    <a class="nav-link" aria-current="page" href="../index.php">Home</a>
+                </li>
+                <li class="nav-item click">
+                    <a class="nav-link" aria-current="page" href="../display_all.php">All Products</a>
+                </li>
+                <li class="nav-item click">
+                    <a class="nav-link" aria-current="page" href="../about.php">About</a>
+                </li>
+                <li class="nav-item click">
+                    <a class="nav-link" href="../contact.php" aria-current="page">Contact</a>
+                </li>
+                <?php
+                if (isset($_SESSION['user_email'])) {
+                    echo "<li class='nav-item click'>
+                            <a class='nav-link' href='../user/profile.php'>My Profile</a>
+                        </li>";
+                } else {
+                    echo "<li class='nav-item click'>
+                            <a class='nav-link' aria-current='page' href='../user/user_registration.php'>Register</a>
+                        </li>";
+                }
+                if (isset($_SESSION['user_email'])) {
+                    echo "<li class='nav-item ms-2'>
+                             <a href='../user/logout.php' class='nav-link'>Logout</a>
+                         </li>";
+                } else {
+                    echo "<li class='nav-item click'>
+                              <a class='nav-link' href='../user/user_login.php'>Login</a>
+                            </li>";
+                }
+                ?>
+            </ul>
+            <ul class="navbar-nav pe-3 mb-2 mb-lg-0">
+                <?php
+                $user_ip = getip();
+                $select_query_name = "select * from `user_table` where user_ip='$user_ip'";
+                $result_name = mysqli_query($con, $select_query_name);
+                $row_name = mysqli_fetch_assoc($result_name);
+                $username = $row_name['username'];
+                 if (isset($_SESSION['user_email'])) {
+                    echo "<li class='nav-item  click'>
+                    <a href='#' class='nav-link'>Welcome " . $username . "</a>
+                </li>";
+                } else {
+                    echo "<li class='nav-item  click'>
+                    <a href='#' class='nav-link'>Welcome Guest</a>
+                </li>";
+                }
+                ?></ul>
+    </div>
+</nav>
 
 
         <!--third child-->

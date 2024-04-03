@@ -76,7 +76,7 @@ if(isset($_POST['send'])){
     ?>
     <div class="title2">
       <h3>about us</h3>
-      <p> <a href="index.php">home</a> / about </p>
+      <p> <a href="index.php">home</a> / contact </p>
     </div>
       <section class="contact">
    <form action="" method="post">

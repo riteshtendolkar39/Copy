@@ -53,9 +53,9 @@ session_start();
   <!-- navbar-->
   <div class="container-fluid p-0">
     <!--first child-->
-<?php
-include('include/header.php');
-?>
+    <?php
+    include('include/header.php');
+    ?>
     <!-- calling cart function -->
     <?php cart(); ?>
 
@@ -70,7 +70,7 @@ include('include/header.php');
           <div class="carousel-item active title1">
             <img src="./images/title1.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h1>If you want to make intelligent, get books from here</h1>
+              <h1>If you want to be intelligent, get books from here</h1>
               <p>Shop now!</p>
             </div>
           </div>
